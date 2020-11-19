@@ -189,7 +189,7 @@ $(MACTARGET).dmg: $(DMGSTAGE)
 	# Check for "Users" or "chris" in the resulting DMG image
 	rpath="`cd $(DMGSTAGE) && otool -l xca.app/Contents/MacOS/xca | grep -e "chris\|Users" ||:`" && \
 	if test -n "$$rpath"; then echo "  ERROR $$rpath"; false; fi
-	-codesign --force --deep --signature-size=96000 -s "Christian Hohnstaedt" $(DMGSTAGE)/xca.app --timestamp
+	-codesign --force --deep --signature-size=96000 -s "4B85B2CE6BA898C0B9CAF9D4537AC5D9CD65E317" $(DMGSTAGE)/xca.app --timestamp
 	hdiutil create -ov -fs HFS+ -volname "xca-$(VERSION)" -srcfolder "$<" "$@"
 
 trans:
